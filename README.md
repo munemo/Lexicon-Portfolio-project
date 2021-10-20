@@ -2,3 +2,5 @@
 Team project for Lexicon Django course
 
 - making change here...
+
+- Making some more changes
