@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+      <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"/>
+      <!--<link rel="stylesheet" href="{% static "css/style.css" %}"/> -->
+
+  </head>
+    <nav class="navbar navbar-expand-sm bg-light">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  About
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Contacts
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Projects
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="jumbotron">
+        <h1>Welcome {{  user.username }}! This is your portfolio page</h1>
+        <img src="{{ user.userprofileinfo.profile_pic.url }}">
+    </div>
+
+</body>
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="text-muted"></div>
+      <p class="copyright text-muted small">
+        &copy; 2021 by {{ user.username }} <br />
+        <a href="https://github.com">Github</a>
+      </p>
+    </div>
+  </footer>
+</html>
