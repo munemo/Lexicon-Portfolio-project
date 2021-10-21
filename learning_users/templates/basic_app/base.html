@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+      <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"/>
+      <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'index' %}">Lexicon</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="navbar-link" href="{% url 'basic_app:register' %}">Register</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a class="navbar-link" href="{% url 'basic_app:user_login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div class="container">{% block body_block%} {% endblock %}</div>
+  </body>
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="text-muted"></div>
+      <p class="copyright text-muted small">
+        &copy; 2021 by {{ user.username }} <br />
+        <a href="https://github.com">Github</a>
+      </p>
+    </div>
+  </footer>
+</html>
