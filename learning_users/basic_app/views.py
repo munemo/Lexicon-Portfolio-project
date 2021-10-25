@@ -12,7 +12,7 @@ def index(request):
     return render(request,'basic_app/index.html')
 
 def portfoliopage(request):
-    return render(request, "basic_app/portfolio_site.html")
+    return render(request,'basic_app/portfolio_site.html')
 
 @login_required
 def special(request):
