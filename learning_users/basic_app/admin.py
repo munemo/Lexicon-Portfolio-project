@@ -1,5 +1,9 @@
 from django.contrib import admin
-from basic_app.models import UserProfileInfo, checkBox
+from basic_app.models import UserProfileInfo, SubscriberInfo
 
 admin.site.register(UserProfileInfo)
-admin.site.register(checkBox)
+admin.site.register(SubscriberInfo)
+
+
+
+
