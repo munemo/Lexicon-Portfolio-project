@@ -5,11 +5,9 @@
              <h1>Success! Thank you for subscribing!</h1>
             {% else %}
              <h1>Subscribe Here</h1>
-             <h6>Get the latest job listings that match your skills set, right in your mailbox!</h6>
+             <h3>Get the latest job listings that match your skills set, right in your mailbox!</h3>
                 <form action="{% url 'basic_app:subscribe' %}" method="post">
-                {% csrf_token %}
-                <input type="email" name="subscriber_email" placeholder="Enter subscription email" required>
-                <br>
+                {% csrf_token %} {{ subscriber_form.as_p }}
                 <input type="submit" value="Subscribe" class="btn btn-primary btn-sm">
                 <br>
                 </form>

@@ -14,6 +14,8 @@ class UserProfileInfo(models.Model):
 class SubscriberInfo(models.Model):
     subscriber_email = models.EmailField(null=True, blank=True, max_length=200, unique=True)
 
-    def __str__(self):
-        return self.subscriber_email
+    def __repr__ (self):
+        return '<SubscriberInfo %s>' % self.subscriber_email
+
+
 

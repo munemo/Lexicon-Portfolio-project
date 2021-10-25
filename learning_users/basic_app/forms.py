@@ -18,4 +18,4 @@ class UserProfileInfoForm(forms.ModelForm):
 class SubscriberInfoForm(forms.ModelForm):
     class Meta():
         model = SubscriberInfo
-        fields = ()
+        fields = ('subscriber_email',)

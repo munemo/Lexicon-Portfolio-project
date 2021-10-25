@@ -1,0 +1,13 @@
+{% extends "basic_app/base.html"%}
+    {% block body_block %}
+    <div class="jumbotron">
+        <h3>Mailing List</h3>
+        {% if subscribers %}
+        <ol>
+        {% for sub in subscribers %}
+        <li>{{sub.subscriber_email}}</li>
+        {% endfor %}
+         </ol>
+      {% endif %}
+    </div>
+    {% endblock %}

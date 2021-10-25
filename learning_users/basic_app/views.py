@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm
+from basic_app.models import SubscriberInfo
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, send_mass_mail, BadHeaderError
 
 # Create your views here.
 from django.template import RequestContext
@@ -81,6 +83,10 @@ def subscribe(request):
     {'subscriber_form': subscriber_form,
      'subscribed':subscribed})
 
+def list_subscribers(request):
+    subscribers_list = SubscriberInfo.objects.order_by('subscriber_email')
+    subscribers_dict = {'subscribers':subscribers_list}
+    return render(request,'basic_app/list_subscribers.html',context=subscribers_dict)
 
 
 
