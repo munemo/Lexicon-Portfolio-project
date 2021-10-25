@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^list_profiles/$', views.list_profiles, name='list_profiles'),
     url(r'^subscribe/$', views.subscribe, name='subscribe'),
     url(r'^list_subscribers/$', views.list_subscribers, name='list_subscribers'),
+    url(r'^contact/$', views.contact, name='contact'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
 ]

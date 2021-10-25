@@ -1,6 +1,9 @@
 {% extends "basic_app/base.html"%}
     {% block body_block %}
+
+
     <div class="jumbotron">
+
         <p>{{ user.userprofileinfo.description }} </p>
         <p>
         <img src="{{ user.userprofileinfo.profile_pic.url }}">

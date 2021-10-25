@@ -1,7 +1,10 @@
-from django.shortcuts import render
-from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm
+from django.shortcuts import render, redirect
+from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm
 from basic_app.models import UserProfileInfo, SubscriberInfo
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+import urllib.parse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -74,7 +77,9 @@ def user_login(request):
           print("Username: {} and password  {}".format(username,password))
           return HttpResponse("Login failed. Check username and password.")
     else:
-        return render(request,'basic_app/login.html',{})
+        ## Kash added me (included the user_login_form variable/class for easy access in html)
+        user_login_form = AuthenticationForm()
+        return render(request,'basic_app/login.html',{'user_login_form':user_login_form})
 
 def subscribe(request):
     subscribed = False
@@ -109,4 +114,14 @@ def list_subscribers(request):
 #              )
 #    return render(request,'basic_app/index.html')
 
-
+## Kash added me
+def contact(request):
+    if request.method == 'POST':
+        f = ContactForm(request.POST)
+        if f.is_valid():
+            f.save()
+            messages.add_message(request, messages.INFO, 'Submitted.')
+            return redirect('/contact')
+    else:
+        f = ContactForm()
+    return render(request, 'basic_app/contact.html', {'contact_form': f})

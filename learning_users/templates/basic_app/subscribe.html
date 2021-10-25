@@ -1,4 +1,6 @@
 {% extends "basic_app/base.html"%}
+{% load crispy_forms_tags %}
+
     {% block body_block %}
         <div class="jumbotron">
             {% if subscribed %}
@@ -8,7 +10,8 @@
              <h1>Subscribe Here</h1>
              <h3>Get the latest job listings that match your skills set, right in your mailbox!</h3>
                 <form action="{% url 'basic_app:subscribe' %}" method="post">
-                {% csrf_token %} {{ subscriber_form.as_p }}
+                {% csrf_token %} {{ subscriber_form | crispy }}
+                <br>
                 <input type="submit" value="Subscribe" class="btn btn-primary btn-sm">
                 <br>
                 </form>
