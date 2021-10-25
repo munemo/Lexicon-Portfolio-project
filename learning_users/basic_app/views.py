@@ -1,20 +1,28 @@
 from django.shortcuts import render
 from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm
-from basic_app.models import SubscriberInfo
+from basic_app.models import UserProfileInfo, SubscriberInfo
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail, send_mass_mail, BadHeaderError
+from django.template import RequestContext
+
 
 # Create your views here.
-from django.template import RequestContext
 
 def index(request):
     return render(request,'basic_app/index.html')
 
+@login_required
 def portfoliopage(request):
     return render(request, "basic_app/portfolio_site.html")
+
+def list_profiles(request):
+    profiles_list = UserProfileInfo.objects.order_by('user')
+    profiles_dict = {'profiles':profiles_list}
+    return render(request,'basic_app/list_profiles.html',context=profiles_dict)
+
 
 @login_required
 def special(request):
@@ -38,6 +46,7 @@ def register(request):
             profile.user = user
             if 'profile_pic' in request.FILES:
                 profile.profile_pic = request.FILES['profile_pic']
+
             profile.save()
             registered = True
         else:
@@ -79,6 +88,7 @@ def subscribe(request):
             print(subscriber_form.errors)
     else:
         subscriber_form = SubscriberInfoForm()
+
     return render(request, 'basic_app/subscribe.html',
     {'subscriber_form': subscriber_form,
      'subscribed':subscribed})
@@ -86,7 +96,17 @@ def subscribe(request):
 def list_subscribers(request):
     subscribers_list = SubscriberInfo.objects.order_by('subscriber_email')
     subscribers_dict = {'subscribers':subscribers_list}
+    print(subscribers_list)
     return render(request,'basic_app/list_subscribers.html',context=subscribers_dict)
 
+#def welcome_subscribers(request):
+#    # send welcome email
+#    send_email('Welcome to Lexicon Job App!',
+#              'Thank you for your subscription. We are glad to have you.',
+#              'djangoprojectlex@gmail.com',
+#              [''],
+#              fail_silently=False
+#              )
+#    return render(request,'basic_app/index.html')
 
 

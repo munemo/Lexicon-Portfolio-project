@@ -1,8 +1,21 @@
 {% extends "basic_app/base.html"%}
     {% block body_block %}
     <div class="jumbotron">
-        <h1>Welcome {{  user.username }}! This is your portfolio page</h1>
+        <p>{{ user.userprofileinfo.description }} </p>
+        <p>
         <img src="{{ user.userprofileinfo.profile_pic.url }}">
-    {% endblock %}
-    </div>
+        </p>
+
+        <blockquote>
+
+        <p> Name: {{ user.first_name }} {{ user.last_name }} </p>
+        <p> Phone Number: {{ user.userprofileinfo.phone }} </p>
+        <p> Email: {{ user.email }} </p>
+        <p> Skills:  {{ user.userprofileinfo.courses }}  </p>
+
+        </blockquote>
+
+   </div>
+ {% endblock %}
+
 
