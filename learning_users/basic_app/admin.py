@@ -1,9 +1,15 @@
 from django.contrib import admin
-from basic_app.models import UserProfileInfo, SubscriberInfo
+from basic_app.models import UserProfileInfo, SubscriberInfo, Contact
+from basic_app import models
 
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject','date',)
+    search_fields = ('name', 'email',)
+    date_hierarchy = 'date'
+
+# Register your models here.
 admin.site.register(UserProfileInfo)
 admin.site.register(SubscriberInfo)
 
-
-
-
+## Kash added me
+admin.site.register(models.Contact, ContactAdmin)

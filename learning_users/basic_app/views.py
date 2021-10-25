@@ -1,7 +1,10 @@
-from django.shortcuts import render
-from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm
+from django.shortcuts import render, redirect
+from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm
 from basic_app.models import SubscriberInfo
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+import urllib.parse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -27,38 +30,24 @@ def user_logout(request):
 def register(request):
     registered = False
     if request.method == 'POST':
-      
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileInfoForm(data=request.POST)            
-      
-        
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
             user.set_password(user.password)
             user.save()
-            
-           
             profile = profile_form.save(commit=False)
             profile.user = user
-           
             if 'profile_pic' in request.FILES:
                 profile.profile_pic = request.FILES['profile_pic']
                 profile.description = request.FILES['description']
-                
-         
-              
             profile.save()
- 
             registered = True          
-                        
-            
-                 
         else:
             print(user_form.errors,profile_form.errors)
     else:
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
-      
     return render(request,'basic_app/registration.html',{'user_form':user_form,
     'profile_form':profile_form,
     'registered':registered})   
@@ -79,7 +68,9 @@ def user_login(request):
           print("Username: {} and password  {}".format(username,password))
           return HttpResponse("Login failed. Check username and password.")
     else:
-        return render(request,'basic_app/login.html',{})
+        ## Kash added me (included the user_login_form variable/class for easy access in html)
+        user_login_form = AuthenticationForm()
+        return render(request,'basic_app/login.html',{'user_login_form':user_login_form})
 
 def subscribe(request):
     subscribed = False
@@ -102,5 +93,14 @@ def list_subscribers(request):
     subscribers_dict = {'subscribers':subscribers_list}
     return render(request,'basic_app/list_subscribers.html',context=subscribers_dict)
 
-
-
+## Kash added me
+def contact(request):
+    if request.method == 'POST':
+        f = ContactForm(request.POST)
+        if f.is_valid():
+            f.save()
+            messages.add_message(request, messages.INFO, 'Submitted.')
+            return redirect('/contact')
+    else:
+        f = ContactForm()
+    return render(request, 'basic_app/contact.html', {'contact_form': f})
