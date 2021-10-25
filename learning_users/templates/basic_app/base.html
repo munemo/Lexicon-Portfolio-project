@@ -26,20 +26,20 @@
   </head>
   <body>
   <div class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-sm navbar-static-top bg-light">
+    <nav class="navbar navbar-expand-sm navbar-static-top header-bg text-light">
       <div class="container">
         <ul class="nav navbar-nav me-auto">
           <li><a class="navbar-brand" href="{% url 'index' %}">Lexicon</a></li>
+          <li><a class="navbar-link" href="{% url 'basic_app:portfolio' %}">My portfolio</a></li>
           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
           <li><a class="navbar-link" href="{% url 'basic_app:register' %}">Register</a>
           </li>
-
             <li><a class="navbar-link" href="{% url 'basic_app:subscribe' %}">Subscribe</a>
           </li>
           {% if user.is_authenticated %}
-          <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
+            <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
           {% else %}
-          <li><a class="navbar-link" href="{% url 'basic_app:user_login' %}">Login</a></li>
+            <li><a class="navbar-link" href="{% url 'basic_app:user_login' %}">Login</a></li>
           {% endif %}
         </ul>
       </div>
@@ -47,7 +47,7 @@
     <div class="container">{% block body_block%} {% endblock %}</div>
   
   
-  <footer class="mt-auto w-100 py-4 flex-shrink-0">
+  <footer class="mt-auto w-100 py-4 flex-shrink-0 footer-bg">
         <div class="container py-4">
             <div class="row gy-4 gx-5">
                 <div class="col-lg-4 col-md-6">
