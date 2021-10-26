@@ -1,9 +1,8 @@
 {% extends "basic_app/base.html"%}
+{% load crispy_forms_tags %}
 {% load staticfiles %}
 {% block body_block %}
 
-
-   
 <div class="jumbotron">
   {% if registered %}
   <h1>Success! Thank you for registering.</h1>
@@ -14,13 +13,9 @@
   <h1>Register Here</h1>
   <h3>Fill out the form:</h3>
   <form method="POST" enctype="multipart/form-data">
-    {% csrf_token%} {{ user_form.as_p }} {{ profile_form.as_p }} 
-    
-  
-    <input type="submit" class="btn btn-primary" value="Register" id="but1"/>
+    {% csrf_token%} {{ user_form |crispy }} {{ profile_form |crispy }} {{ contact_form.as_p}}
+    <input type="submit" class="btn btn-primary" value="Register" />
   </form>
-
- 
   {% endif %}
 </div>
 {% endblock %}

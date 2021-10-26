@@ -3,13 +3,13 @@
 
     {% block body_block %}
     <div class="jumbotron">
-         <h1>Login</h1>
+         <h1>Contact Us</h1>
         <br>
-         <form action="{% url 'basic_app:user_login' %}" method="POST">
+         <form action="{% url 'basic_app:contact' %}" method="POST">
          {% csrf_token %}
-                {{user_login_form|crispy}}
+                {{contact_form|crispy}}
          <br>
-         <input type="submit" class="btn btn-primary" value="Login" />
+         <input type="submit" class="btn btn-primary" value="Send" />
        </form>
     </div>
     {% endblock %}
