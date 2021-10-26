@@ -4,6 +4,11 @@
 
 *.sql
 *.sqlite
+venv
+*.pyc
+staticfiles
+.env
+db.sqlite3
  
 # OS generated files #
 ######################
