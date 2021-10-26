@@ -2,7 +2,7 @@ from django.contrib import admin
 from basic_app.models import UserProfileInfo, SubscriberInfo, Contact
 from basic_app import models
 
-# Kash's class
+# Kash added me
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subject','date',)
     search_fields = ('name', 'email',)

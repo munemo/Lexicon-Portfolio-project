@@ -32,6 +32,7 @@
           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
           <li><a class="navbar-link" href="{% url 'basic_app:register' %}">Register</a></li>
           <li><a class="navbar-link" href="{% url 'basic_app:subscribe' %}">Subscribe</a></li>
+          <li><a class="navbar-link" href="{% url 'basic_app:contact' %}">Contact Us</a>
           {% if user.is_authenticated %}
           <li><a class="navbar-link" href="{% url 'basic_app:list_profiles' %}">Profiles</a></li>
           <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
@@ -65,7 +66,7 @@
                     <h5 class="text-white mb-3">Services</h5>
                     <ul class="list-unstyled">
                         <li><a href="{% url 'basic_app:register' %}">Register</a></li>
-                        <li><a href="#">Search Profile</a></li>
+                        <li><a href="{% url 'basic_app:searchprofile' %}">Search Profile</a></li>
                         <li><a href="{% url 'basic_app:user_login' %}">Login</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
