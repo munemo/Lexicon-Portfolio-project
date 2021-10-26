@@ -5,6 +5,7 @@ from multiselectfield import MultiSelectField
 
 # Create your models here.
 
+# User Profile
 class UserProfileInfo(models.Model):
     user = models.OneToOneField(User)
     portfolio_site = models.URLField(blank=True)
@@ -19,6 +20,7 @@ class UserProfileInfo(models.Model):
     def __str__(self):
         return self.user.username
 
+# Subscriber
 class SubscriberInfo(models.Model):
     subscriber_email = models.EmailField(null=True, blank=True, max_length=200, unique=True)
 
@@ -39,3 +41,12 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name + "-" +  self.email
+
+## Joblisting Newsletter
+class MailJobList(models.Model):
+    subject = models.CharField(max_length=100, null=True)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.subject
+

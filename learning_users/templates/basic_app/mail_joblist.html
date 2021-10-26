@@ -3,17 +3,15 @@
 
     {% block body_block %}
     <div class="jumbotron">
-        {% for message in messages %}
+         {% for message in messages %}
          <div class="alert alert-success">
          {{ message }}
          </div>
         {% endfor %}
-         <h1>Contact Us</h1>
-        <br>
-         <form action="{% url 'basic_app:contact' %}" method="POST">
-         {% csrf_token %}
-                {{contact_form|crispy}}
+         <h3>Mail Subscribers</h3>
          <br>
+         <form action="{% url 'basic_app:mail_joblist' %}" method="POST">
+         {% csrf_token %}{{ mail_joblistform | crispy }}
          <input type="submit" class="btn btn-primary" value="Send" />
        </form>
     </div>
