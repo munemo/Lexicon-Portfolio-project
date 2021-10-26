@@ -3,6 +3,7 @@ from basic_app import views
 from django.conf import settings
 from django.views.static import serve
 
+
 app_name = 'basic_app'
 
 urlpatterns = [
@@ -14,4 +15,5 @@ urlpatterns = [
     url(r'^list_subscribers/$', views.list_subscribers, name='list_subscribers'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
+    url(r'^search/$', views.searchprofile, name='searchprofile'),
 ]

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm
 from basic_app.models import UserProfileInfo, SubscriberInfo
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
@@ -12,7 +13,7 @@ from django.core.mail import EmailMessage, send_mail, send_mass_mail, BadHeaderE
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.template import RequestContext
-
+from django.db.models import Q
 
 # Create your views here.
 
@@ -142,3 +143,24 @@ def contact(request):
     else:
         f = ContactForm()
     return render(request, 'basic_app/contact.html', {'contact_form': f})
+
+def searchprofile(request):
+    if request.method == 'GET':
+        query= request.GET.get('q')
+
+        submitbutton= request.GET.get('submit')
+
+        if query is not None:
+            lookups= Q(username__icontains=query)
+            results = User.objects.filter(lookups).distinct()
+
+            context = {'results': results,
+                     'submitbutton': submitbutton}
+
+            return render(request, 'basic_app/search.html', context)
+
+        else:
+            return render(request, 'basic_app/search.html')
+
+    else:
+        return render(request, 'basic_app/search.html')

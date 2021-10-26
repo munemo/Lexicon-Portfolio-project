@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^basic_app/',include('basic_app.urls')),
     url(r'^logout/$',views.user_logout, name='logout'),
-    url(r'special/',views.special, name='special')
+    url(r'special/',views.special, name='special'),
+    url(r'^search/$', views.searchprofile, name='searchprofile'),
 ]
 
 # Serving the media files in development mode
