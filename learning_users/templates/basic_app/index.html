@@ -1,8 +1,10 @@
 {% extends "basic_app/base.html"%}
     {% block body_block %}
-    <div class="jumbotron">
-        <h1>Welcome!</h1>
-        <h2>Show off your skills and get hired!</h2>
-        <h3><a href="{% url 'basic_app:register' %}">Register here</a> or <a href="{% url 'basic_app:user_login' %}">Login</a></h3>
-    </div>
+    <div class="start-bg-holder col-md 12">
+        <div class="home-banner col-md-12">
+            <h1>Welcome!</h1>
+            <h2>Show off your skills and get hired!</h2>
+            <h3><a href="{% url 'basic_app:register' %}">Register here</a> or <a href="{% url 'basic_app:user_login' %}">Login</a></h3>
+        </div>
+    </div>  
     {% endblock %}
