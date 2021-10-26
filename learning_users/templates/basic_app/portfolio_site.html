@@ -2,22 +2,39 @@
     {% block body_block %}
 
 
-    <div class="jumbotron">
+    <div class="jumbotron col-md-12">
+      <div class="col-md-12 ">
+        <div class="profile_picture col-md-5 pt-4">
+          <p>
+          <img class="rounded-circle account-img" src="{{ user.userprofileinfo.profile_pic.url }}">
+          </p>
+          <div>
+            <h1>{{ user.first_name }} <br>{{ user.last_name }}</h1>
+          </div>
+        </div>
 
-        <p>{{ user.userprofileinfo.description }} </p>
-        <p>
-        <img src="{{ user.userprofileinfo.profile_pic.url }}">
-        </p>
-
-        <blockquote>
-
-        <p> Name: {{ user.first_name }} {{ user.last_name }} </p>
-        <p> Phone Number: {{ user.userprofileinfo.phone }} </p>
-        <p> Email: {{ user.email }} </p>
-        <p> Skills:  {{ user.userprofileinfo.courses }}  </p>
-
-        </blockquote>
-
+        <div class="col-md-7 pb-4"> 
+          <div>
+            <h3>Phone</h3>
+            <p>{{ user.userprofileinfo.phone }} </p>
+          </div>
+          <div>
+            <h3>E-mail</h3>
+            <p> {{ user.email }} </p>
+          </div>
+          <div>
+            <h3>Skills</h3>
+            <p>  {{ user.userprofileinfo.courses }}  </p>
+          </div>
+          <div class="btn mt-4">
+            <a href="{{ user.userprofileinfo.portfolio_site.url }}">Visit my Github Portfolio</a>
+          </div>
+          <div class="pt-4">
+            <h3>Description:</h3>
+            <p>{{ user.userprofileinfo.description }} </p>
+          </div>
+        </div>
+      </div>
    </div>
  {% endblock %}
 
