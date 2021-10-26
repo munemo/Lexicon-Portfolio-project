@@ -28,17 +28,17 @@
     <nav class="navbar navbar-expand-sm navbar-static-top bg-success">
       <div class="container">
         <ul class="nav navbar-nav me-auto">
-          <li><a class="navbar-brand" href="{% url 'index' %}">Lexicon</a></li>
-          <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-          <li><a class="navbar-link" href="{% url 'basic_app:register' %}">Register</a></li>
-          <li><a class="navbar-link" href="{% url 'basic_app:subscribe' %}">Subscribe</a></li>
-          <li><a class="navbar-link" href="{% url 'basic_app:contact' %}">Contact Us</a>
+          <li><a class="navbar-brand text-white" href="{% url 'index' %}">Lexicon</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'basic_app:register' %}">Register</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'basic_app:subscribe' %}">Subscribe</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'basic_app:contact' %}">Contact Us</a>
           {% if user.is_authenticated %}
-          <li><a class="navbar-link" href="{% url 'basic_app:list_profiles' %}">Profiles</a></li>
-          <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
-          <li><a class="navbar-link" href="{% url 'basic_app:portfolio' %}">Portfolio</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'basic_app:list_profiles' %}">Profiles</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'logout' %}">Logout</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'basic_app:portfolio' %}">Portfolio</a></li>
           {% else %}
-          <li><a class="navbar-link" href="{% url 'basic_app:user_login' %}">Login</a></li>
+          <li><a class="navbar-link text-white" href="{% url 'basic_app:user_login' %}">Login</a></li>
           {% endif %}
         </ul>
       </div>
