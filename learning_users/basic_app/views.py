@@ -8,7 +8,9 @@ import urllib.parse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail, send_mass_mail, BadHeaderError
+from django.core.mail import EmailMessage, send_mail, send_mass_mail, BadHeaderError
+from django.conf import settings
+from django.template.loader import render_to_string
 from django.template import RequestContext
 
 
@@ -21,6 +23,7 @@ def index(request):
 def portfoliopage(request):
     return render(request, "basic_app/portfolio_site.html")
 
+@login_required
 def list_profiles(request):
     profiles_list = UserProfileInfo.objects.order_by('user')
     profiles_dict = {'profiles':profiles_list}
@@ -88,7 +91,19 @@ def subscribe(request):
         if subscriber_form.is_valid():
             subscriber = subscriber_form.save(commit=False)
             subscriber.save()
+            print(subscriber)
             subscribed = True
+
+            # send welcome email
+            # change the dummy@testemail.com
+            email = EmailMessage(
+                'Welcome to Lex Job App',
+                'Thank you for your subscription! Check your mailbox regularly for the hottest jobs in the tech field!',
+                'settings.EMAIL_HOST_USER',
+                ['dummy@testemail.com'], )
+            email.fail_silenty = False
+            email.send()
+
         else:
             print(subscriber_form.errors)
     else:
@@ -101,18 +116,20 @@ def subscribe(request):
 def list_subscribers(request):
     subscribers_list = SubscriberInfo.objects.order_by('subscriber_email')
     subscribers_dict = {'subscribers':subscribers_list}
-    print(subscribers_list)
+
+    # send mass email
+    # change the dummy@testemail.com
+    email = EmailMessage(
+        'Hot Jobs Available!',
+        'More than 50 Full Stack Engineers and IT Security analysts for ABC Branch Stockholm.',
+        'settings.EMAIL_HOST_USER',
+        ['dummy@testemail.com'])
+
+    email.fail_silenty = False
+    email.send()
+
     return render(request,'basic_app/list_subscribers.html',context=subscribers_dict)
 
-#def welcome_subscribers(request):
-#    # send welcome email
-#    send_email('Welcome to Lexicon Job App!',
-#              'Thank you for your subscription. We are glad to have you.',
-#              'djangoprojectlex@gmail.com',
-#              [''],
-#              fail_silently=False
-#              )
-#    return render(request,'basic_app/index.html')
 
 ## Kash added me
 def contact(request):

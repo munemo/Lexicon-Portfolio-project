@@ -148,12 +148,12 @@ LOGIN_URL = '/basic_app/user_login'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # writes email to file
-# EMAIL_BACKEND = 'django.core.email.backends.filebased.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = '/basic_app/messages' # edit this
 
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'djangoprojectlex@gmail.com'
+EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))
 EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))
 EMAIL_PORT = 587
