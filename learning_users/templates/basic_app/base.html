@@ -33,6 +33,7 @@
           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
           <li><a class="navbar-link" href="{% url 'basic_app:register' %}">Register</a></li>
           <li><a class="navbar-link" href="{% url 'basic_app:subscribe' %}">Subscribe</a></li>
+          <li><a class="navbar-link" href="{% url 'basic_app:contact' %}">Contact Us</a>
           {% if user.is_authenticated %}
           <li><a class="navbar-link" href="{% url 'basic_app:list_profiles' %}">Profiles</a></li>
           <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
