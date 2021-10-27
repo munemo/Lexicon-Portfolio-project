@@ -28,7 +28,8 @@ urlpatterns = [
     url(r'^logout/$',views.user_logout, name='logout'),
     url(r'mail_joblist/',views.mail_joblist, name='mail_joblist'),
     url(r'contact/',views.contact, name='contact'),
-    url(r'special/',views.special, name='special')
+    url(r'special/',views.special, name='special'),
+    url(r'^search/',views.searchprofile, name='searchprofile'),
 ]
 
 # Serving the media files in development mode

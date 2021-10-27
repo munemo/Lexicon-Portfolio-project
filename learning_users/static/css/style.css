@@ -12,6 +12,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   color: #202020;
+  font-weight: bold;
 }
 .footer {
   position: absolute;
@@ -30,13 +31,42 @@ h1, h2, h3, h4, h5, h6 {
   color: #fbfbfb;
   border: none;
   font-weight: bold;
+  background-color:#a4b8a8;
 }
 
 .btn:hover {
   background-color: burlywood;
 }
 
-.footer-bg, .header-bg {
-  background-color: #a4b8a8;
+.navbar-link:hover, .navbar-brand:hover{
+  color:#313131 !important;
 }
 
+.list-unstyled li a{
+  color: white;
+}
+.list-unstyled li a:hover{
+  color: #313131;
+}
+
+.home-banner{
+  background: rgba(49, 49, 49, 0.8) ;
+  display:inline-block;
+  align-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 5% -25%;
+  height: 101%;
+  width: 150%;
+  padding: 10%
+}
+.home-banner h1, .home-banner h2, .home-banner h3{
+  color: #fbfbfb;
+}
+
+.start-bg-holder{
+  background: url("/media/profile_pics/free-for-hire-background.jpg") 0 repeat fixed;
+  margin: -2% 0 5% -25%;
+  height: 103%;
+  width: 150%;
+}

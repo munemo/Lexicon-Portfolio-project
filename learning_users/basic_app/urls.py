@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^mail_joblist/$', views.mail_joblist, name='mail_joblist'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
+    url(r'^search/$', views.searchprofile, name='searchprofile'),
 ]
