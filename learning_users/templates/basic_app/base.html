@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8"/>
         <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <base href="/">
 
         <link
@@ -30,7 +31,7 @@
             <nav class="navbar navbar-expand-sm navbar-static-top navbar-light bg-success">
                 <div class="container">
                     <ul class="nav navbar-nav me-auto">
-                        <li><a class="navbar-brand text-white" href="{% url 'index' %}">Lexicon</a></li>
+                        <li><a class="navbar-brand" href="{% url 'index' %}"><img src="/static/images/logo.png"></a></li>
                         <li><a class="navbar-link text-white" href="{% url 'admin:index' %}">Admin</a></li>
                         <li><a class="navbar-link text-white" href="{% url 'basic_app:register' %}">Register</a></li>
                         <li><a class="navbar-link text-white" href="{% url 'basic_app:subscribe' %}">Subscribe</a></li>
@@ -54,9 +55,10 @@
                 <div class="container py-4">
                     <div class="row gy-4 gx-5">
                         <div class="col-lg-4 col-md-6">
-                            <h5 class="h1 text-white">Lexicon</h5>
+                            <div><img src="/static/images/logo.png"></div>
+                            <br>
                             <p class="small text-white">Visualize the portfolio and pivot quickly</p>
-                            <p class="small mb-0 text-white">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">Lexicon.se</a></p>
+                            <p class="small mb-0 text-white">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">Team2PortfolioSite.com</a></p>
                         </div>
 
                         <div class="col-lg-2 col-md-6">
