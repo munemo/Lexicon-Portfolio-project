@@ -9,9 +9,8 @@ colorama==0.4.4
 dataclasses==0.6
 distlib==0.3.3
 dj-database-url==0.5.0
-Django ==1.2
+Django ==1.4
 django-dotenv==1.4.2
-django-heroku==0.3.1
 django-multiselectfield==0.1.12
 django-rest-framework==0.1.0
 djangorestframework==3.12.4
