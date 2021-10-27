@@ -32,3 +32,10 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = '__all__'
+
+## Kash | Update UserProfileInfo
+class ProfileUpdateForm(UserForm, ):
+    class Meta:
+        model = UserProfileInfo
+        fields = ('portfolio_site','phone','description','courses')
+

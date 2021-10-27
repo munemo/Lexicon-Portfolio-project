@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm, MailJobListForm
+from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm, MailJobListForm, ProfileUpdateForm
 from basic_app.models import UserProfileInfo, SubscriberInfo, MailJobList
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -186,3 +186,21 @@ def searchprofile(request):
             return render(request, 'basic_app/search.html')
     else:
         return render(request, 'basic_app/search.html')
+## Kash | UpdateProfileInfo implementation
+
+@login_required
+def profile_edit(request):
+    if request.method == 'POST':
+        p_form = ProfileUpdateForm(request.POST, instance=request.user.userprofileinfo)
+        if  p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('/portfolio/') # Redirect back to profile page
+
+    else:
+        p_form = ProfileUpdateForm(instance=request.user.userprofileinfo)
+
+    context = {
+        'p_form': p_form,
+    }
+    return render(request, 'basic_app/portfolio_edit.html', context)
