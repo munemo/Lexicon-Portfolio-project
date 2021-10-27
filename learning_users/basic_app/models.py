@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django import forms
 from multiselectfield import MultiSelectField
+from PIL import Image
 
 # Create your models here.
 
@@ -19,6 +20,16 @@ class UserProfileInfo(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def save (self):
+        super().save()
+
+        img = Image.open(self.profile_pic.path)
+
+        if img.height > 200 or img.width > 200:
+            output_size = (200, 200)
+            img.thumbnail(output_size)
+            img.save(self.profile_pic.path)
 
 # Subscriber
 class SubscriberInfo(models.Model):

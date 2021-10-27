@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm, MailJobListForm
 from basic_app.models import UserProfileInfo, SubscriberInfo, MailJobList
@@ -8,10 +9,12 @@ import urllib.parse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.core.mail import EmailMessage, send_mail, send_mass_mail, BadHeaderError
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.template import RequestContext
+from django.db.models import Q
 
 
 # Create your views here.
@@ -120,12 +123,13 @@ def subscribe(request):
      'subscribed':subscribed})
 
 
+@staff_member_required
 def list_subscribers(request):
     subscribers_list = SubscriberInfo.objects.order_by('subscriber_email')
     subscribers_dict = {'subscribers':subscribers_list}
     return render(request,'basic_app/list_subscribers.html',context=subscribers_dict)
 
-
+@staff_member_required
 def mail_joblist(request):
     if request.method == 'POST':
         mail_joblistform = MailJobListForm(request.POST)
