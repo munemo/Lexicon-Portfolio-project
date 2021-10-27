@@ -167,26 +167,6 @@ def contact(request):
         f = ContactForm()
     return render(request, 'basic_app/contact.html', {'contact_form': f})
 
-<<<<<<< HEAD
-def searchprofile(request):
-    if request.method == 'GET':
-        query= request.GET.get('q')
-
-        submitbutton= request.GET.get('submit')
-
-        if query is not None:
-            lookups= Q(username__icontains=query)
-            results = User.objects.filter(lookups).distinct()
-
-            context = {'results': results,
-                     'submitbutton': submitbutton}
-
-            return render(request, 'basic_app/search.html', context)
-
-        else:
-            return render(request, 'basic_app/search.html')
-
-=======
 
 def searchprofile(request):
     if request.method == 'GET':
@@ -200,6 +180,5 @@ def searchprofile(request):
             return render(request, 'basic_app/search.html', context)
         else:
             return render(request, 'basic_app/search.html')
->>>>>>> origin/testing
     else:
         return render(request, 'basic_app/search.html')

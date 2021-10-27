@@ -31,7 +31,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #fbfbfb;
   border: none;
   font-weight: bold;
-  background-color:#a4b8a8;
 }
 
 .btn:hover {
@@ -94,7 +93,6 @@ h1 a:hover, h2 a:hover, h3 a:hover{
 }
 .navbar-brand:hover{
   background: none !important;
-=======
 }
 
 .list-unstyled li a{
@@ -129,28 +127,32 @@ h1 a:hover, h2 a:hover, h3 a:hover{
 
 main table{
     width: 100%;
-    border: 1px solid #FEAE00;
+    background: lightyellow;
+    border: 2px solid #313131;
     border-spacing: 0px;
+    border-radius: 5%;;
+    margin: 0 auto 3% auto;
+
 }
 
 main th, td {
     width: 25;
-    padding: 15px;
+    padding: 1% 2%;
     text-align: left;
 }
 
 main th, td {
     width: 25%;
-    padding: 15px;
     text-align: left;
 }
 
 main td {
-    vertical-align: bottom;
+    vertical-align: top;
+    padding: 2%;
 }
 
 main th{
-    background-color: #FEAE00;
+    background-color: #198754;
     color:white;
 }
 
@@ -159,6 +161,61 @@ main table img{
     height: auto;
 }
 
-main tr:nth-child(even) {
-    background-color: white;
+tr:nth-child(even) {
+  background-color: whitesmoke;
+}
+
+tr:nth-child(odd) {
+  background-color: lightyellow;
+  padding: 2%;
+}
+
+.td-name {
+  color: #202020;
+  font-weight: bold;
+}
+
+.accordion > input[name="collapse"] {
+  display: none;
+}
+
+.accordion .content {
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.accordion label {
+  color: #198754;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px;
+}
+ 
+.accordion label:hover,
+.accordion label:focus {
+  background: rgba(25, 135, 84);
+  color: white;
+}
+ 
+.accordion .handle label:before {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1em;
+  line-height: 1.556em;
+  vertical-align: middle;
+  transition: 0.4s;
+  
+}
+ 
+.accordion > input[name="collapse"]:checked ~ .handle label:before {
+    transform: rotate(180deg);
+    transform-origin: center;
+    transition: 0.4s;
+}
+
+.accordion > input[name="collapse"]:checked ~ .content {
+  height: 370px;
+  background-color:rgba(25, 135, 84, 0.1);
+  transition: height 0.8s;
 }
