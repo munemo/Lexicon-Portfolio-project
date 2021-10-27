@@ -1,8 +1,13 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
+from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm
+from basic_app.models import UserProfileInfo, SubscriberInfo
 from django.contrib.auth.models import User
+=======
 from basic_app.forms import UserForm, UserProfileInfoForm, SubscriberInfoForm, ContactForm, MailJobListForm
 from basic_app.models import UserProfileInfo, SubscriberInfo, MailJobList
+>>>>>>> origin/testing
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
@@ -16,6 +21,10 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.template import RequestContext
 from django.db.models import Q
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/testing
 
 # Create your views here.
 

@@ -28,3 +28,8 @@ body {
   .form-control:focus {
     background: #212529;
   }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> origin/testing

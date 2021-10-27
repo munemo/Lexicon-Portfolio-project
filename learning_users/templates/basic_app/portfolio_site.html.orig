@@ -13,7 +13,11 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <div class="col-md-7 pb-4"> 
+=======
+        <div class="col-md-7 pb-4">
+>>>>>>> origin/testing
           <div>
             <h3>Phone</h3>
             <p>{{ user.userprofileinfo.phone }} </p>

@@ -45,6 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-link:hover, .navbar-brand:hover{
   color:#313131 !important;
+<<<<<<< HEAD
 }
 
 .list-unstyled li a{
@@ -161,4 +162,5 @@ main table img{
 
 main tr:nth-child(even) {
     background-color: white;
+>>>>>>> origin/testing
 }

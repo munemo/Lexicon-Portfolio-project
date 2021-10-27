@@ -1,5 +1,5 @@
 from django.contrib import admin
-from basic_app.models import UserProfileInfo, SubscriberInfo, Contact
+from basic_app.models import UserProfileInfo, SubscriberInfo, Contact, MailJobList
 from basic_app import models
 
 # Kash added me
@@ -11,6 +11,7 @@ class ContactAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(UserProfileInfo)
 admin.site.register(SubscriberInfo)
+admin.site.register(MailJobList)
 
 ## Kash added me
 admin.site.register(models.Contact, ContactAdmin)

@@ -21,6 +21,18 @@ class UserProfileInfo(models.Model):
     def __str__(self):
         return self.user.username
 
+<<<<<<< HEAD
+    def save(self):
+        super().save()
+        
+        img = Image.open(self.profile_pic.path)
+
+        if img.height > 200 or img.width > 200:
+            output_size = (200,200)
+            img.thumbnail(output_size)
+            img.save(self.profile_pic.path)
+
+=======
     def save (self):
         super().save()
 
@@ -32,6 +44,7 @@ class UserProfileInfo(models.Model):
             img.save(self.profile_pic.path)
 
 # Subscriber
+>>>>>>> origin/testing
 class SubscriberInfo(models.Model):
     subscriber_email = models.EmailField(null=True, blank=True, max_length=200, unique=True)
 
