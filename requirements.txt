@@ -1,5 +1,4 @@
 argon2-cffi==21.1.0
-asgiref @ file:///home/conda/feedstock_root/build_artifacts/asgiref_1625395912402/work
 backports.entry-points-selectable==1.1.0
 bcrypt==3.2.0
 certifi==2020.12.5
@@ -10,8 +9,7 @@ colorama==0.4.4
 dataclasses==0.8
 distlib==0.3.3
 dj-database-url==0.5.0
-Django @ file:///home/conda/feedstock_root/build_artifacts/django_1633432780726/work
-django-crispy-forms @ file:///home/conda/feedstock_root/build_artifacts/django-crispy-forms_1632605802473/work
+Django ==1.2
 django-dotenv==1.4.2
 django-heroku==0.3.1
 django-multiselectfield==0.1.12
@@ -37,13 +35,10 @@ psycopg2==2.9.1
 pycparser==2.20
 pymongo==3.12.1
 python-dateutil==1.5
-pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1633452062248/work
 requests==2.26.0
 six==1.16.0
 SQLAlchemy==1.4.26
-sqlparse @ file:///home/conda/feedstock_root/build_artifacts/sqlparse_1631317292236/work
 text-unidecode==1.3
-typing-extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1632313171031/work
 urllib3==1.26.7
 virtualenv==20.8.1
 virtualenv-clone==0.5.7
