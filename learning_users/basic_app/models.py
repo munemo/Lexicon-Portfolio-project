@@ -8,7 +8,7 @@ from PIL import Image
 
 # User Profile
 class UserProfileInfo(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     portfolio_site = models.URLField(blank=True)
     profile_pic = models.ImageField(upload_to='profile_pics',blank=True, default="media/profile_pics/harry.jpeg")
     phone = models.CharField(max_length=200, default="+46 000 000 0000", blank=True)

@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .start-bg-holder{
-  background: url("/media/profile_pics/free-for-hire-background.jpg") 0 repeat fixed;
+  background: url("/static/images/background.jpg") 0 repeat fixed;
   margin: -3vh 0 5% -7.5%;
   height: 104%;
   width: 99.4vw;
