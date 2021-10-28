@@ -168,7 +168,6 @@ def contact(request):
     return render(request, 'basic_app/contact.html', {'contact_form': f})
 
 def searchprofile(request):
-    print("search")
     if request.method == 'GET':
         query= request.GET.get('q')
 
