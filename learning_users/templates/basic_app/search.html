@@ -8,6 +8,7 @@
     <input id="search_term" class="search_term" type="text" placeholder="Enter username to start your search here" aria-label="Search" /></div>
 <button type="submit">Go</button>
 </form>-->
+
 <form action="{% url 'basic_app:searchprofile' %}" method="GET" value="{{request.GET.q}}">
 Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search users"/>
 <input type="submit" name="submit" value="Search"/>
@@ -19,9 +20,10 @@ Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search
 <br/><br/>
 
 {% for result in results %}
+
 <br/>
 <table style="border:orange; border-width:3px; border-style:solid; padding:10px;" width="600">
-<th><center> User:{{result.username}} </center> </th>
+<th> User:{{result.username}}  </th>
 <tr>
 <td><img height="300" width = "300" src="{{ result.userprofileinfo.profile_pic.url }}"></td>
 <td>
