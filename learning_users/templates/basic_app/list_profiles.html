@@ -1,23 +1,23 @@
 {% extends "basic_app/base.html"%}
     {% block body_block %}
-         <div class="jumbotron">
+
     <main>
-      <table>
+      <table class="">
           {% if profiles %}
         <thead>
           <tr>
-            <th>Profile Image</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Skills</th>
+            <th scope="col">Profile Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Skills</th>
           </tr>
         </thead>
           {% for profile in profiles %}
           <tbody>
             <tr>
-              <td><img src="{{ profile.user.userprofileinfo.profile_pic.url }}" alt="user image"></td>
-              <td>{{profile.user.first_name}} {{profile.user.last_name}}</td>
-              <td>{{profile.user.userprofileinfo.description}}</td>
+              <td><img class="rounded-circle account-img" src="{{ profile.user.userprofileinfo.profile_pic.url }}"></td>
+              <td class="td-name">{{profile.user.first_name}} {{profile.user.last_name}}</td>
+              <td><p>{{profile.user.userprofileinfo.description}}</p></td>
               <td>{{profile.user.userprofileinfo.courses}}</td>
             </tr>
           </tbody>
@@ -25,5 +25,5 @@
           {% endif %}
       </table>
     </main>
-        </div>
+
     {% endblock %}

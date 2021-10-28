@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from basic_app  import views
+from basic_app import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'contact/', views.contact, name='contact'),
     url(r'special/', views.special, name='special'),
     url(r'^search/', views.searchprofile, name='searchprofile'),
+    url(r'^aboutus/', views.aboutus, name='aboutus'),
+    url(r'^terms/', views.terms, name='terms'),
 ]
 
 # Serving the media files in development mode

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import UserProfileInfo, SubscriberInfo, MailJobList
-#from basic_app import models
 from . import models
+
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subject', 'date',)

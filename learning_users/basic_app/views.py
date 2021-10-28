@@ -188,3 +188,11 @@ def searchprofile(request):
             return render(request, 'basic_app/search.html')
     else:
         return render(request, 'basic_app/search.html')
+
+
+def aboutus(request):
+    return render(request, 'basic_app/aboutus.html')
+
+
+def terms(request):
+    return render(request, 'basic_app/terms.html')
