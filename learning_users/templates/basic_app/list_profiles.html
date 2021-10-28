@@ -15,7 +15,7 @@
           {% for profile in profiles %}
           <tbody>
             <tr>
-              <td><img src="{{ profile.user.userprofileinfo.profile_pic.url }}"></td>
+              <td><img src="{{ profile.user.userprofileinfo.profile_pic.url }}" alt="user image"></td>
               <td>{{profile.user.first_name}} {{profile.user.last_name}}</td>
               <td>{{profile.user.userprofileinfo.description}}</td>
               <td>{{profile.user.userprofileinfo.courses}}</td>

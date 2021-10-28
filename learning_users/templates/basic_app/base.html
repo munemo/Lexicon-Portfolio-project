@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html>
+<html lang="sv">
     <head>
         <meta charset="utf-8"/>
         <title></title>
@@ -67,7 +67,6 @@
                                 <li><a href="{% url 'index' %}">Home</a></li>
                                 <li><a href="{% url 'index' %}">About us</a></li>
                                 <li><a href="{% url 'basic_app:contact' %}">Contact us</a></li>
-                                <li><a href="#">Terms and conditions</a></li>
                             </ul>
                         </div>
 
@@ -77,21 +76,7 @@
                                 <li><a href="{% url 'basic_app:register' %}">Register</a></li>
                                 <li><a href="{% url 'basic_app:searchprofile' %}">Search Profile</a></li>
                                 <li><a href="{% url 'basic_app:user_login' %}">Login</a></li>
-                                <li><a href="#">FAQ</a></li>
                             </ul>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <h5 class="text-white mb-3">Quick Search</h5>
-                            <p class="small text-white">Search for a profile here</p>
-                            <form action="#">
-                                <div class="input-group mb-3">
-                                    <input class="form-control text-white" type="text" placeholder="Search here..." aria-label="Profile name" aria-describedby="button-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary bg-success" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

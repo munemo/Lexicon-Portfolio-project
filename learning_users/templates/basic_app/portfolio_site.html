@@ -6,7 +6,7 @@
       <div class="col-md-12 ">
         <div class="profile_picture col-md-5 pt-4">
           <p>
-          <img class="rounded-circle account-img" src="{{ user.userprofileinfo.profile_pic.url }}">
+          <img class="rounded-circle account-img" src="{{ user.userprofileinfo.profile_pic.url }}" alt="user image">
           </p>
           <div>
             <h1>{{ user.first_name }} <br>{{ user.last_name }}</h1>
@@ -32,6 +32,8 @@
           <div class="pt-4">
             <h3>Description:</h3>
             <p>{{ user.userprofileinfo.description }} </p>
+            <br>
+            <p><a class="text-primary" href="{% url 'basic_app:portfolio_edit' %}">Edit Your Portfolio</a></p>
           </div>
         </div>
       </div>

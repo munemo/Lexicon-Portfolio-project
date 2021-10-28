@@ -18,18 +18,17 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-from basic_app import views
+from basic_app  import views
 
 urlpatterns = [
-    url(r'^$',views.index, name='index'),
+    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^basic_app/',include('basic_app.urls')),
-    url(r'^logout/$',views.user_logout, name='logout'),
-    url(r'mail_joblist/',views.mail_joblist, name='mail_joblist'),
-    url(r'contact/',views.contact, name='contact'),
-    url(r'special/',views.special, name='special'),
-    url(r'^search/',views.searchprofile, name='searchprofile'),
+    url(r'^basic_app/', include('basic_app.urls')),
+    url(r'^logout/$', views.user_logout, name='logout'),
+    url(r'mail_joblist/', views.mail_joblist, name='mail_joblist'),
+    url(r'contact/', views.contact, name='contact'),
+    url(r'special/', views.special, name='special'),
+    url(r'^search/', views.searchprofile, name='searchprofile'),
 ]
 
 # Serving the media files in development mode
