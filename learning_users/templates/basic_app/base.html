@@ -65,9 +65,9 @@
                             <h5 class="text-white mb-3">Quick links</h5>
                             <ul class="list-unstyled">
                                 <li><a href="{% url 'index' %}">Home</a></li>
-                                <li><a href="{% url 'index' %}">About us</a></li>
+                                <li><a href="{% url 'basic_app:aboutus' %}">About us</a></li>
                                 <li><a href="{% url 'basic_app:contact' %}">Contact us</a></li>
-                                <li><a href="#">Terms and conditions</a></li>
+                                <li><a href="{% url 'basic_app:terms' %}">Terms and conditions</a></li>
                             </ul>
                         </div>
 
@@ -84,11 +84,13 @@
                         <div class="col-lg-4 col-md-6">
                             <h5 class="text-white mb-3">Quick Search</h5>
                             <p class="small text-white">Search for a profile here</p>
-                            <form action="#">
+                            <form action="{% url 'basic_app:searchprofile' %}" method="GET" value="{{request.GET.q}}">
+                            {% csrf_token %}
                                 <div class="input-group mb-3">
-                                    <input class="form-control text-white" type="text" placeholder="Search here..." aria-label="Profile name" aria-describedby="button-addon2">
+                                    <input name="q" class="form-control text-white" type="text" placeholder="Search here..." aria-label="Profile name" aria-describedby="button-addon2">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary bg-success" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
+                                        <button class="btn btn-primary bg-success" id="button-addon2" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                    
                                     </div>
                                 </div>
                             </form>

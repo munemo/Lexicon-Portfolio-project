@@ -168,6 +168,7 @@ def contact(request):
     return render(request, 'basic_app/contact.html', {'contact_form': f})
 
 def searchprofile(request):
+    print("search")
     if request.method == 'GET':
         query= request.GET.get('q')
 
@@ -204,3 +205,9 @@ def profile_edit(request):
         'p_form': p_form,
     }
     return render(request, 'basic_app/portfolio_edit.html', context)
+
+def aboutus(request):
+    return render(request,'basic_app/aboutus.html')
+
+def terms(request):
+    return render(request,'basic_app/terms.html')
