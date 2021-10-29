@@ -1,0 +1,221 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px;
+  font-family: 'Zilla Slab', serif;
+  color: #313131;
+  background-color: #fbfbfb;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #202020;
+  font-weight: bold;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.jumbotron{
+  background-color: lightyellow;
+  border: solid 2px #313131;
+}
+
+.btn{
+  background-color: #198754;
+  color: #fbfbfb;
+  border: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: burlywood;
+  color: #313131;
+}
+
+.btn a:hover{
+  color: #313131;
+}
+
+.navbar-link:hover, .navbar-brand:hover{
+  color:#313131 !important;
+}
+
+.list-unstyled li a{
+  color: white;
+}
+.list-unstyled li a:hover{
+  color: #313131;
+}
+
+.home-banner{
+  background: rgba(49, 49, 49, 0.8) ;
+  display:inline-block;
+  align-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 5% 0;
+  height: 100%;
+  width: 99.4vw;
+  padding: 10%
+}
+.home-banner h1, .home-banner h2, .home-banner h3{
+  color: #fbfbfb;
+}
+
+.start-bg-holder{
+  background: url("/media/profile_pics/free-for-hire-background.jpg") 0 repeat fixed;
+  margin: -3vh 0 5% -7.5%;
+  height: 104%;
+  width: 99.4vw;
+}
+
+h1 a, h2 a, h3 a{
+  background-color: #198754;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover{
+  background: none;
+  color: #198754;
+}
+
+.navbar-brand{
+  padding:0;
+  margin-top:-10px;
+}
+.navbar-brand:hover{
+  background: none !important;
+}
+
+.list-unstyled li a{
+  color: white;
+}
+.list-unstyled li a:hover{
+  color: #313131;
+}
+
+.home-banner{
+  background: rgba(49, 49, 49, 0.8) ;
+  display:inline-block;
+  align-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 5% -25%;
+  height: 101%;
+  width: 150%;
+  padding: 10%
+}
+.home-banner h1, .home-banner h2, .home-banner h3{
+  color: #fbfbfb;
+}
+
+.start-bg-holder{
+  background: url("/media/profile_pics/free-for-hire-background.jpg") 0 repeat fixed;
+  margin: -2% 0 5% -25%;
+  height: 103%;
+  width: 150%;
+}
+
+
+main table{
+    width: 100%;
+    background: lightyellow;
+    border: 2px solid #313131;
+    border-spacing: 0px;
+    border-radius: 5%;;
+    margin: 0 auto 3% auto;
+
+}
+
+main th, td {
+    width: 25;
+    padding: 1% 2%;
+    text-align: left;
+}
+
+main th, td {
+    width: 25%;
+    text-align: left;
+}
+
+main td {
+    vertical-align: top;
+    padding: 2%;
+}
+
+main th{
+    background-color: #198754;
+    color:white;
+}
+
+main table img{
+    width: 100px;
+    height: auto;
+}
+
+tr:nth-child(even) {
+  background-color: whitesmoke;
+}
+
+tr:nth-child(odd) {
+  background-color: lightyellow;
+  padding: 2%;
+}
+
+.td-name {
+  color: #202020;
+  font-weight: bold;
+}
+
+.accordion > input[name="collapse"] {
+  display: none;
+}
+
+.accordion .content {
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.accordion label {
+  color: #198754;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px;
+}
+ 
+.accordion label:hover,
+.accordion label:focus {
+  background: rgba(25, 135, 84);
+  color: white;
+}
+ 
+.accordion .handle label:before {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1em;
+  line-height: 1.556em;
+  vertical-align: middle;
+  transition: 0.4s;
+  
+}
+ 
+.accordion > input[name="collapse"]:checked ~ .handle label:before {
+    transform: rotate(180deg);
+    transform-origin: center;
+    transition: 0.4s;
+}
+
+.accordion > input[name="collapse"]:checked ~ .content {
+  height: 370px;
+  background-color:rgba(25, 135, 84, 0.1);
+  transition: height 0.8s;
+}

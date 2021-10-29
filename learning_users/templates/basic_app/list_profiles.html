@@ -1,0 +1,42 @@
+{% extends "basic_app/base.html"%}
+    {% block body_block %}
+
+    <main>
+      <table class="">
+          {% if profiles %}
+        <thead>
+          <tr>
+            <th scope="col">Profile Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Skills</th>
+          </tr>
+        </thead>
+          {% for profile in profiles %}
+          <tbody>
+            <tr>
+              <td><img src="{{ profile.user.userprofileinfo.profile_pic.url }}"></td>
+              <td class="td-name">{{profile.user.first_name}} {{profile.user.last_name}}</td>
+              <td>    
+                <section class="accordion">
+                  <input type="checkbox" name="collapse" id="{{ profile.user.username }}"> <!-- The username is used as id just to get a unique value, connected to the user, for each user iteration in the for-loop --> 
+                    <div class="handle ">
+                      <label for="{{ profile.user.username }}">
+                        Toggle Profile Description >>> 
+                      </label>
+                    </div>
+      
+                    <div class="content">
+                      <p>{{profile.user.userprofileinfo.description}}</p>  
+                    </div>
+                </section>
+              </td>
+              <td>{{profile.user.userprofileinfo.courses}}</td>
+            </tr>
+          </tbody>
+          {% endfor %}
+          {% endif %}
+      </table>
+    </main>
+
+    {% endblock %}

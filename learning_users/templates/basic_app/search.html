@@ -1,0 +1,49 @@
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+
+<div class="jumbotron" >
+
+<!--<form method="POST">
+   {% csrf_token %}
+    <input id="search_term" class="search_term" type="text" placeholder="Enter username to start your search here" aria-label="Search" /></div>
+<button type="submit">Go</button>
+</form>-->
+<form action="{% url 'basic_app:searchprofile' %}" method="GET" value="{{request.GET.q}}">
+Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search users"/>
+<input type="submit" name="submit" value="Search"/>
+</form>
+
+ {% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+<h3>Results for <b>{{ request.GET.q }}</b></h3>
+<br/><br/>
+
+{% for result in results %}
+<br/>
+<table style="border:orange; border-width:3px; border-style:solid; padding:10px;" width="600">
+<th><center> User:{{result.username}} </center> </th>
+<tr>
+<td><img height="300" width = "300" src="{{ result.userprofileinfo.profile_pic.url }}"></td>
+<td>
+<blockquote>
+
+        <p> <b>Name:</b> {{ result.first_name }} {{ result.last_name }} </p>
+        <p> <b>Phone Number:</b> {{ result.userprofileinfo.phone }} </p>
+        <p><b> Email:</b> {{ result.email }} </p>
+        <p> <b>Skills: </b> {{ result.userprofileinfo.courses }}  </p>
+        <p> <b>Description:</b>{{ result.userprofileinfo.description }} </p>
+
+</blockquote>
+</td>
+</tr>
+</table>
+<br/>
+
+{% endfor %}
+{% else %}
+<br/><br/>
+<h3>No search results for this query</h3>
+{% endif %}
+{% endif %}
+</div>
+{% endblock %}

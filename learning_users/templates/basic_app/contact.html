@@ -1,0 +1,20 @@
+{% extends "basic_app/base.html" %}
+{% load crispy_forms_tags %}
+
+    {% block body_block %}
+    <div class="jumbotron">
+        {% for message in messages %}
+         <div class="alert alert-success">
+         {{ message }}
+         </div>
+        {% endfor %}
+         <h1>Contact Us</h1>
+        <br>
+         <form action="{% url 'basic_app:contact' %}" method="POST">
+         {% csrf_token %}
+                {{contact_form|crispy}}
+         <br>
+         <input type="submit" class="btn btn-primary" value="Send" />
+       </form>
+    </div>
+    {% endblock %}

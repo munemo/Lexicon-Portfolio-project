@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="/">
+
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"/>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+        <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous"/>
+        <link rel="stylesheet" href="{% static "css/footer.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+    </head>
+
+    <body>
+        <div class="d-flex flex-column h-100">
+            <nav class="navbar navbar-expand-sm navbar-static-top navbar-light bg-success">
+                <div class="container">
+                    <ul class="nav navbar-nav me-auto">
+                        <li><a class="navbar-brand" href="{% url 'index' %}"><img src="/static/images/logo.png"></a></li>
+                        <li><a class="navbar-link text-white" href="{% url 'admin:index' %}">Admin</a></li>
+                        <li><a class="navbar-link text-white" href="{% url 'basic_app:register' %}">Register</a></li>
+                        <li><a class="navbar-link text-white" href="{% url 'basic_app:subscribe' %}">Subscribe</a></li>
+                        <li><a class="navbar-link text-white" href="{% url 'basic_app:contact' %}">Contact Us</a>
+                        {% if user.is_authenticated %}
+                            <li><a class="navbar-link text-white" href="{% url 'basic_app:list_profiles' %}">Profiles</a></li>
+                            <li><a class="navbar-link text-white" href="{% url 'basic_app:list_subscribers' %}">Subscribers</a></li>
+                            <li><a class="navbar-link text-white" href="{% url 'basic_app:mail_joblist' %}">Mail</a></li>
+                            <li><a class="navbar-link text-white" href="{% url 'logout' %}">Logout</a></li>
+                            <li><a class="navbar-link text-white" href="{% url 'basic_app:portfolio' %}">Portfolio</a></li>
+                        {% else %}
+                            <li><a class="navbar-link text-white" href="{% url 'basic_app:user_login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container">
+                {% block body_block%} {% endblock %}
+            </div>
+
+            <footer class="mt-0 w-100 py-4 flex-shrink-0 bg-success">
+                <div class="container py-4">
+                    <div class="row gy-4 gx-5">
+                        <div class="col-lg-4 col-md-6">
+                            <div><img src="/static/images/logo.png"></div>
+                            <br>
+                            <p class="small text-white">Visualize the portfolio and pivot quickly</p>
+                            <p class="small mb-0 text-white">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">Team2PortfolioSite.com</a></p>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6">
+                            <h5 class="text-white mb-3">Quick links</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'basic_app:aboutus' %}">About us</a></li>
+                                <li><a href="{% url 'basic_app:contact' %}">Contact us</a></li>
+                                <li><a href="{% url 'basic_app:terms' %}">Terms and conditions</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6">
+                            <h5 class="text-white mb-3">Services</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="{% url 'basic_app:register' %}">Register</a></li>
+                                <li><a href="{% url 'basic_app:searchprofile' %}">Search Profile</a></li>
+                                <li><a href="{% url 'basic_app:user_login' %}">Login</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <h5 class="text-white mb-3">Quick Search</h5>
+                            <p class="small text-white">Search for a profile here</p>
+                            <form action="{% url 'basic_app:searchprofile' %}" method="GET" value="{{request.GET.q}}">
+                            {% csrf_token %}
+                                <div class="input-group mb-3">
+                                    <input name="q" class="form-control text-white" type="text" placeholder="Search here..." aria-label="Profile name" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary bg-success" id="button-addon2" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                    
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
